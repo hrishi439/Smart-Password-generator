@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Password Generator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Password Generator</h1>
+        <p>Password Length: <span id="password-length">12</span></p>
+        <input type="range" min="8" max="32" value="12" id="lengthRange">
+
+        <div class="options">
+            <label><input type="checkbox" id="uppercase" checked> Include Uppercase Letters</label>
+            <label><input type="checkbox" id="lowercase" checked> Include Lowercase Letters</label>
+            <label><input type="checkbox" id="numbers" checked> Include Numbers</label>
+            <label><input type="checkbox" id="symbols" checked> Include Symbols</label>
+            <label><input type="checkbox" id="avoid-ambiguous"> Avoid Ambiguous Characters</label>
+        </div>
+
+        <div class="form-group">
+            <label for="platform">Choose a platform:</label>
+            <select id="platform" name="platform">
+                <option value="">Select a platform</option>
+                <option value="amazon">Amazon</option>
+                <option value="shopify">Shopify</option>
+                <option value="meesho">Meesho</option>
+                <option value="flipkart">Flipkart</option>
+                <option value="myntra">Myntra</option>
+                <option value="ajio">Ajio</option>
+                <option value="wix">Wix</option>
+                <option value="bigcommerce">BigCommerce</option>
+            </select>
+            <span class="error" id="platformError"></span><br>
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <span class="error" id="unameError"></span><br>
+        </div>
+        
+        <button class="generate-btn" onclick="generatePassword()">Generate Password</button>
+        <button class="saved-btn" onclick="fetchSavedPasswords()">Saved Passwords</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>UserName</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="savedPasswords">
+                <!-- Passwords will appear here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
